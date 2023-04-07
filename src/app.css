@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:wght@500&family=Source+Code+Pro:wght@600&display=swap");
+
+body {
+    overflow: hidden;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: "Cabin", sans-serif;
+    user-select: none;
+    /* font-size: large; */
+}
