@@ -31,7 +31,6 @@ export const initSketch = (
             let pos = new Vector(e.pageX, e.pageY);
             pos.sub(p5Div.offsetLeft, p5Div.offsetTop);
             pos.sub(p5Div.offsetWidth / 2, p5Div.offsetHeight / 2);
-            // console.log(pos);
 
             if (
                 drawPoints.length == 0 ||
@@ -42,7 +41,6 @@ export const initSketch = (
     };
     let mouseUp = (e: PointerEvent) => {
         if (drawPoints != null && coefficients == null) {
-            console.log("fuck fart");
             let coefTemp = wasm.get_coefficients(
                 drawPoints.map(v => new Float64Array([v.x, v.y])),
                 getAccuracy()
@@ -103,7 +101,7 @@ export const initSketch = (
 
                 p.noFill();
                 p.beginShape();
-                // console.log(drawPoints);
+
                 for (let v of drawPoints) {
                     p.vertex(v.x, v.y);
                 }

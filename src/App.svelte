@@ -2,7 +2,6 @@
     import { onMount } from "svelte";
     import p5, { Vector } from "p5";
     import { initSketch, type SketchData } from "./sketch";
-    import { complexMult, PI } from "./fourier";
 
     let p5Div: HTMLDivElement;
     // let p5Size = new Vector(0, 0);
@@ -21,8 +20,6 @@
         );
         new p5(sketchData.sketch, p5Div);
     });
-    // let a = wasm.get_coefficients([new Float64Array([6])], 6);
-    // console.log(a);
 </script>
 
 <svelte:window
@@ -74,22 +71,60 @@
                 sketchData.mouseDown(e);
             }}
         />
+        <div class="footer">
+            Made by Ursu Radu
+            <a
+                class="github_link"
+                href="https://github.com/Ursu-Radu/fourier-drawing"
+                target="_blank"
+            >
+                <img
+                    src="github-mark-white.svg"
+                    alt="Github"
+                    width="30px"
+                    height="30px"
+                />
+            </a>
+        </div>
     </div>
 </div>
 
 <style>
+    button {
+        border: none;
+    }
     .everything {
         position: absolute;
         width: 100vw;
         height: 100vh;
-        padding: 16px;
+        padding: 12px;
     }
     .container {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
+        gap: 12px;
+    }
+    .footer {
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
         gap: 8px;
+        color: #fffa;
+    }
+    .github_link {
+        width: 30px;
+        height: 30px;
+        opacity: 0.5;
+
+        cursor: pointer;
+
+        transition: all ease-in-out 0.1s;
+    }
+    .github_link:hover {
+        opacity: 0.8;
     }
     .ui {
         display: flex;
